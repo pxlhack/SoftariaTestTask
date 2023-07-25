@@ -38,4 +38,55 @@ public class MailCreatorTest {
         assertEquals(expectedMail, mailCreator.create(todaysWebsiteState, yesterdaysWebsiteState));
     }
 
+
+    @Test
+    public void test_create_with_empty_maps() {
+        Map<String, String> todaysWebsiteState = new HashMap<>();
+        Map<String, String> yesterdaysWebsiteState = new HashMap<>();
+
+        String expectedMail = """
+                Здравствуйте, дорогая и.о. секретаря
+
+                За последние сутки во вверенных Вам сайтах произошли следующие изменения:
+
+                Исчезли следующие страницы:\s
+                Появились следующие новые страницы\s
+                Изменились следующие страницы\s""";
+
+        MailCreator mailCreator = new MailCreator();
+
+        assertEquals(expectedMail, mailCreator.create(todaysWebsiteState, yesterdaysWebsiteState));
+    }
+
+
+    @Test
+    public void test_create_without_changes() {
+        Map<String, String> todaysWebsiteState = new HashMap<>();
+        Map<String, String> yesterdaysWebsiteState = new HashMap<>();
+
+        todaysWebsiteState.put("https://www.google.com/", "google html code");
+        todaysWebsiteState.put("https://github.com/", "github html code");
+        todaysWebsiteState.put("https://www.youtube.com/", "youtube html code");
+        todaysWebsiteState.put("https://www.postman.com/", "postman html code");
+
+        yesterdaysWebsiteState.put("https://www.google.com/", "google html code");
+        yesterdaysWebsiteState.put("https://github.com/", "github html code");
+        yesterdaysWebsiteState.put("https://www.youtube.com/", "youtube html code");
+        yesterdaysWebsiteState.put("https://www.postman.com/", "postman html code");
+
+        String expectedMail = """
+                Здравствуйте, дорогая и.о. секретаря
+
+                За последние сутки во вверенных Вам сайтах произошли следующие изменения:
+
+                Исчезли следующие страницы:\s
+                Появились следующие новые страницы\s
+                Изменились следующие страницы\s""";
+
+        MailCreator mailCreator = new MailCreator();
+
+        assertEquals(expectedMail, mailCreator.create(todaysWebsiteState, yesterdaysWebsiteState));
+    }
+
+
 }
