@@ -35,4 +35,4 @@
     git clone https://github.com/pxlhack/SoftariaTestTask.git
     cd SoftariaTestTask
     mvn test
-    ```
+   ```
