@@ -33,7 +33,7 @@ public class MailCreatorTest {
                 "Появились следующие новые страницы https://genius.com/\n" +
                 "Изменились следующие страницы https://www.google.com/";
 
-        MailCreator mailCreator = new MailCreator(new DifferenceChecker());
+        MailCreator mailCreator = new MailCreator();
 
         assertEquals(expectedMail, mailCreator.create(todaysWebsiteState, yesterdaysWebsiteState));
     }

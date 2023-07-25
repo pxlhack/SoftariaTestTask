@@ -6,8 +6,8 @@ public class MailCreator {
 
     private final DifferenceChecker differenceChecker;
 
-    public MailCreator(DifferenceChecker differenceChecker) {
-        this.differenceChecker = differenceChecker;
+    public MailCreator() {
+        this.differenceChecker = new DifferenceChecker();
     }
 
     public String create(Map<String, String> todaysWebsiteState,

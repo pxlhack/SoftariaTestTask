@@ -4,9 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class UrlChanges {
-    private Set<String> disappearedPages;
-    private Set<String> newPages;
-    private Set<String> changedPages;
+    private final Set<String> disappearedPages;
+    private final Set<String> newPages;
+    private final Set<String> changedPages;
 
     public UrlChanges(Set<String> disappearedPages, Set<String> newPages, Set<String> changedPages) {
         this.disappearedPages = new HashSet<>(disappearedPages);
