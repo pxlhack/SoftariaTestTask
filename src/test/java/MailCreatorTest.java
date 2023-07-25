@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MailCreatorTest {
 
     @Test
-    public void test() {
+    public void test_create() {
         Map<String, String> todaysWebsiteState = new HashMap<>();
         Map<String, String> yesterdaysWebsiteState = new HashMap<>();
 
@@ -24,13 +24,14 @@ public class MailCreatorTest {
         yesterdaysWebsiteState.put("https://www.postman.com/", "postman html code");
         yesterdaysWebsiteState.put("https://genius.com/", "genius html code");
 
-        String expectedMail = "Здравствуйте, дорогая и.о. секретаря\n" +
-                "\n" +
-                "За последние сутки во вверенных Вам сайтах произошли следующие изменения:\n" +
-                "\n" +
-                "Исчезли следующие страницы: https://www.youtube.com/\n" +
-                "Появились следующие новые страницы https://genius.com/\n" +
-                "Изменились следующие страницы https://www.google.com/";
+        String expectedMail = """
+                Здравствуйте, дорогая и.о. секретаря
+
+                За последние сутки во вверенных Вам сайтах произошли следующие изменения:
+
+                Исчезли следующие страницы: https://www.youtube.com/
+                Появились следующие новые страницы https://genius.com/
+                Изменились следующие страницы https://www.google.com/""";
 
         MailCreator mailCreator = new MailCreator();
 
