@@ -10,7 +10,7 @@ public class DifferenceChecker {
                                  Map<String, String> yesterdaysWebsiteState) {
 
         Set<String> disappearedPages = findDisappearedPages(todaysWebsiteState, yesterdaysWebsiteState);
-        Set<String> newPages = findNewPages(yesterdaysWebsiteState, todaysWebsiteState);
+        Set<String> newPages = findNewPages(todaysWebsiteState, yesterdaysWebsiteState);
         Set<String> changedPages = findChangedPages(todaysWebsiteState, yesterdaysWebsiteState);
 
         return UrlChanges.builder()
