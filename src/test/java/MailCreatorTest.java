@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import ru.pxlhack.DifferenceChecker;
 import ru.pxlhack.MailCreator;
 
 
@@ -32,7 +33,7 @@ public class MailCreatorTest {
                 "Появились следующие новые страницы https://genius.com/\n" +
                 "Изменились следующие страницы https://www.google.com/";
 
-        MailCreator mailCreator = new MailCreator();
+        MailCreator mailCreator = new MailCreator(new DifferenceChecker());
 
         assertEquals(expectedMail, mailCreator.create(todaysWebsiteState, yesterdaysWebsiteState));
     }
